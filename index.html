@@ -24,7 +24,10 @@
               <button class="waves-effect waves-light btn" onClick="displayRandom();">
                 Another
               </button>
-              <a class="btn" style="float: right;" href="https://github.com/oliyh/random-css-property">
+              <a id="property-link" class="waves-effect waves-light btn" href="#" target="_blank">
+                Learn
+              </button>
+              <a class="btn" style="float: right;" href="https://github.com/oliyh/random-css-property" target="_blank">
                 Github
               </a>
             </div>
@@ -37,11 +40,12 @@
       var properties = [];
 
       function displayRandom() {
-        document.getElementById('property-name').innerHTML = properties[Math.floor(Math.random() * properties.length)];
+        var property = properties[Math.floor(Math.random() * properties.length)];
+        document.getElementById('property-name').innerHTML = property;
+        document.getElementById('property-link').href = 'https://developer.mozilla.org/en-US/docs/Web/CSS/' + property;
       }
 
       function init(properties) {
-        console.log('initing with', properties);
         this.properties = properties;
         displayRandom();
       }
